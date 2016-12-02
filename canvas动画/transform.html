@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    canvas{
+        background: #ccc;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var canvas=document.querySelector("canvas");
+        var cobj=canvas.getContext("2d");
+//        面向对象
+       function rect(){
+           this.x=0;
+           this.y=0;
+           this.w=50;
+           this.h=50;
+           this.color="#000";
+           this.speedx=3;
+           this.speedy=5;
+       }
+        rect.prototype={
+            draw:function(){
+                cobj.save();
+                cobj.translate(this.x,this.y);
+                cobj.fillStyle=this.color;
+                cobj.fillRect(0,0,this.w,this.h);
+                cobj.restore();
+            },
+            update:function(){
+                this.x+=this.speedx;
+                this.y+=this.speedy;
+            }
+        }
+        var rect1=new rect();
+        var rect2=new rect();
+        rect2.color="red";
+        rect2.w=100;
+        rect2.h=50;
+        rect2.speedx=10;
+        rect2.speedy=5;
+        setInterval(function(){
+            cobj.clearRect(0,0,800,600);
+            rect1.draw();
+            rect1.update();
+            rect2.draw();
+            rect2.update();
+        },50)
+    }
+</script>
+<body>
+<canvas width="800" height="600"></canvas>
+</body>
+</html>

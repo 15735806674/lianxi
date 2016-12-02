@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+   body,html{
+       padding:0;
+       margin:0;
+       overflow: hidden;
+   }
+    canvas{
+        background: #ccc;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var cw=document.documentElement.clientWidth;
+        var ch=document.documentElement.clientHeight;
+        var canvas=document.querySelector("canvas");
+        canvas.width=cw;
+        canvas.height=ch;
+        var cobj=canvas.getContext("2d");
+        canvas.onmousedown=function(e){
+            var cx=e.offsetX;
+            var cy=e.offsetY;
+            cobj.beginPath();
+            cobj.moveTo(cx,cy);
+            canvas.onmousemove=function(e){
+                var movex=e.offsetX;
+                var movey=e.offsetY;
+                cobj.strokeStyle="orange";
+                cobj.lineWidth=1;
+                cobj.lineTo(movex,movey);
+                cobj.stroke();
+                e.preventDefault();
+            }
+            canvas.onmouseup=function(){
+                canvas.onmousemove=null;
+                canvas.onmouseup=null;
+                e.preventDefault()
+            }
+        }
+    }
+</script>
+<body>
+<canvas></canvas>
+</body>
+</html>

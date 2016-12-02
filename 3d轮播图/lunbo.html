@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .boxs{
+        width: 800px;
+        height:400px;
+        position: fixed;
+        left:0;
+        top:0;
+        bottom:0;
+        right:0;
+        margin:auto;
+        perspective:6000px;
+        perspective-origin: bottom;
+    }
+</style>
+<body>
+<div class="boxs"></div>
+</body>
+<script>
+    window.onload=function(){
+        var boxs=document.getElementsByClassName("boxs")[0];
+        var height=parseInt(getComputedStyle(boxs,null).height);
+        var width=parseInt(getComputedStyle(boxs,null).width);
+        var nums=10;
+        var arr=[];
+        for(var i=0;i<nums;i++){
+//            创建场景
+            var scene=document.createElement("div");
+            scene.style.cssText="width:100%;height:"+height/nums+"px;position:absolute;left:0;top:"+i*(height/nums)+"px;";
+//            创建盒子
+            var box=document.createElement("div");
+            box.style.cssText="width:100%;height:100%;position:absolute;left:0;top:0;transform-style:preserve-3d;transition:transform 2s ease "+(i*0.3)+"s;transform-origin:center center 400px";
+//            创建面
+            for(var j=0;j<6;j++){
+                var panle=document.createElement("div");
+                panle.style.cssText="position:absolute;left:0;top:0;";
+                if(j==0){
+                    panle.style.width="100%";
+                    panle.style.height=width+"px";
+                    panle.style.transformOrigin="top";
+                    panle.style.transform="rotateX(-90deg)";
+                }else if(j==1){
+                    panle.style.width="100%";
+                    panle.style.height=height/nums+"px";
+                    panle.style.transformOrigin="left";
+                    panle.style.transform="rotateY(-90deg)";
+                    panle.style.background="url(img/1.jpg) no-repeat 0 "+-i*(height/nums)+"px";
+                }else if(j==2){
+                    panle.style.width="100%";
+                    panle.style.height=height/nums+"px";
+                    panle.style.background="url(img/2.jpg) no-repeat 0 "+-i*(height/nums)+"px";
+                }else if(j==3){
+                    panle.style.width="100%";
+                    panle.style.height=height/nums+"px";
+                    panle.style.transformOrigin="right";
+                    panle.style.transform="rotateY(90deg)";
+                    panle.style.background="url(img/3.jpg) no-repeat 0 "+-i*(height/nums)+"px";
+                }else if(j==4){
+                    panle.style.width="100%";
+                    panle.style.height=height/nums+"px";
+                    panle.style.transform="translate3d(0,0,"+width+"px)";
+                    panle.style.background="url(img/4.jpg) no-repeat 0 "+-i*(height/nums)+"px";
+                }else if(j==5){
+                    panle.style.width="100%";
+                    panle.style.height=width+"px";
+                    panle.style.transformOrigin="bottom";
+                    panle.style.top=-(width-height/nums)+"px";
+                    panle.style.transform="rotateX(90deg)";
+                }
+                box.appendChild(panle);
+            }
+            arr.push(box);
+            scene.appendChild(box);
+            boxs.appendChild(scene);
+
+        }
+        var init=0;
+        var t=setInterval(move,5000)
+        function move(){
+            init+=90;
+            for(var i=0;i<arr.length;i++){
+                arr[i].style.transform="rotateY("+init+"deg)";
+            }
+        }
+        window.onblur=function(){
+            clearInterval(move,5000);
+        }
+        window.onfocus=function(){
+            t=setInterval(move,5000)
+        }
+    }
+
+</script>
+</html>

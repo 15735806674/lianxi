@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+window.onload=function(){
+    var clock=document.querySelectorAll(".clock")[0];
+    var time=new Date();
+    var pointerh=creatPointer(4,40,"#000",time.getHours()*30+(time.getMinutes()*6)/12);
+    var pointerm=creatPointer(4,60,"#ccc",time.getMinutes()*6);
+    var pointers=creatPointer(3,75,"red",time.getSeconds()*6);
+
+
+    setInterval(function(){
+        var time=new Date();
+        pointerh.style.transform="translate("+(400-pointerh.w)/2+"px,"+(200-pointerh.h)+"px) rotate("+(time.getHours()*30+time.getMinutes()*6/12)+"deg)";
+        pointerm.style.transform="translate("+(400-pointerm.w)/2+"px,"+(200-pointerm.h)+"px) rotate("+time.getMinutes()*6+"deg)";
+            pointers.style.transform="translate("+(400-pointers.w)/2+"px,"+(200-pointers.h)+"px) rotate("+time.getSeconds()*6+"deg)";
+    },1000)
+    function aa(){
+    for(var i=0;i<60;i++){
+        var w,h;
+        if(i%5==0){
+            w=6;h=15;
+        }else{
+            w=4;
+            h=8;
+        }
+        var kedu=document.createElement("div");
+
+        kedu.style.cssText="width:"+w+"px;height:"+h+"px;position:absolute;left:0;top:0;background:#000;";
+        kedu.style.transform="translate("+(400-w)/2+"px,0) rotate("+i*6+"deg)";
+        kedu.style.transformOrigin="center 200px";
+        clock.appendChild(kedu);
+        }
+    }
+    aa();
+    function creatPointer(w,h,c,d){
+        var div=document.createElement("div");
+        div.style.cssText="width:"+w+"px;height:"+h+"px;background:"+c+";position:absolute;left:0;top:0;";
+        div.style.transformOrigin="center bottom";
+        div.style.transform="translate("+(400-w)/2+"px,"+(200-h)+"px) rotate("+d+"deg) ";
+        div.w=w;
+        div.h=h;
+        clock.appendChild(div);
+   return div;
+    }
+}
+</script>
+<style>
+    .clock{
+        width:400px;
+        height:400px;
+        position: absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        margin:auto;
+        border: 5px solid red;
+        border-radius: 50%;
+    }
+</style>
+<body>
+<div class="clock"></div>
+</body>
+</html>

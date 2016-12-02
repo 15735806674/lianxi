@@ -1,0 +1,93 @@
+.w1200{width: 1200px;margin: 0 auto;}
+a {
+    transition-property: background,color;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -webkit-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+}
+body{font-family: '微软雅黑';background-color: #fff;}
+
+.getVipBox{color: #13ab00;font-size: 30px;}
+.getVipBox a.vipLink{padding: 5px 25px;background: #13ab00;color: white;font-size: 18px;text-align: center;border-radius: 3px;vertical-align: middle;}
+.getVipBox a:hover.vipLink{background: #2B9810;}
+
+/*浏览页模块*/
+.breadcrumb{margin-top: 5px;}
+.breadcrumb .postion{line-height: 55px;color: #9a9a9a;font-size: 12px;height: 55px;}
+.breadcrumb .postion a,.breadcrumb .postion span{ font-size: 14px;display: block;height: 55px;line-height: 55px;float: left;margin-right: 5px;color: #9a9a9a;}
+.breadcrumb .postion a:hover{color: #7ab3f5;}
+.designMain{background: #fff;padding: 20px;font-size: 14px;color: #474747;font-family: "微软雅黑";width: 1160px;}
+.designMain .fl{float: left;display: inline;}
+.designMain .fr{float: right;display: inline;}
+.designMain .designTitle{color: #474747;font-size: 30px;line-height: 36px;}
+.designMain .designTitle h3{font-weight: normal;font-size: 18px;color: #323232;margin-left: 30px;margin-top: 15px;height: 36px;width: 1000px;overflow: hidden;}
+.designMain .designInfoBox{clear: both; overflow: hidden;zoom: 1;margin-top: 15px;margin-left: 30px;}
+.designMain .designLeftBox{margin-right: 30px; width: 800px;overflow: hidden; position: relative;}
+.designMain .designLeftBox .designPicBox{width: 800px;overflow: hidden;background: url("http://js.97ui.com/image/sucai/showBg.jpg");text-align: center;}
+.designKeywordBox{color: #8A8989;line-height: 26px;margin-top: 10px;font-size: 12px;}
+.designMain .designRightBox .downBtn{overflow: hidden;}
+.designMain .designRightBox .downBtn a.downLink{display: block;width: 240px;height: 80px;overflow: hidden;background-color: #4CAF50;color: #fff;}
+.designMain .designRightBox .downBtn a.downLink:hover{background-color: #4CAF55;}
+.designMain .designRightBox .downBtn a.downLink span{display: block;float: left;}
+.designMain .designRightBox .downBtn a.downLink .down-icon{background: url("http://js.97ui.com/image/sucai/sucai-down.png") no-repeat;width: 37px;height: 34px;margin-left: 34px;margin-top: 22px;}
+.designMain .designRightBox .downBtn a.downLink .down-text{color: #fff;font-size: 25px;margin-top: 22px;}
+.designMain .designRightBox .downBtn a:hover.downLink{}
+.designMain .designRightBox .downBtn a.collectLink{display: block; margin-top: 10px; border: 1px solid #E5E5E5; width: 238px;height: 78px;overflow: hidden;background-color: #FFFFFF;color: #fff;}
+.designMain .designRightBox .downBtn a.collectLink:hover{background-color: #FFFFFF;}
+.designMain .designRightBox .downBtn a.collectLink span{display: block;float: left;}
+.designMain .designRightBox .downBtn a.collectLink .collect-icon{background: url("http://js.97uimg.com/image/yangji/collect-xl.png") no-repeat;width: 38px;height: 35px;margin-left: 34px;margin-top: 22px;}
+.designMain .designRightBox .downBtn a.collectLink .collect-text{color: #6A6A6A;font-size: 28px;margin-top: 22px;}
+.designMain .designRightBox .downBtn a:hover.collectLink{}
+.designMain .designRightBox .downBtn p{padding: 10px 0;}
+.designMain .designRightBox .downBtn .limitInfo{color: red;font-size: 16px;}
+.designMain .designRightBox .downBtn span,.designMain .designRightBox .designDetail p span{padding-right: 20px;}
+.designMain .designRightBox .designDetail{margin-top: 20px; line-height: 28px;}
+.designMain .designRightBox .designDetail h4{font-size: 16px;margin-bottom: 10px;margin-top: 25px;color: #313131;}
+.designMain .designRightBox .designDetail p{color: #999999;font-size: 12px;}
+.downError{margin-top: 40px;text-align: center;background: #fff;min-height: 205px;padding-bottom: 50px;}
+.downError .errorInfo{padding-top: 70px;font-size: 22px;color: #777777}
+.downError p{padding-bottom: 10px;}
+.mainContent{min-height: 500px;}
+.designList h3{padding: 0 10px 5px;font-size: 24px;}
+.sucai-location{width: 49px;height: 55px;display: block;background: url(http://js.97ui.com/image/sucai/sucai-location.png) no-repeat center center;float: left;}
+.sucai-view{font-size:12px;display: block;padding-left: 40px;height: 28px;line-height: 28px;background: url(http://js.97ui.com/image/exp/exp-view.png) no-repeat 0 center;float: left;}
+.sucai-down-icon{font-size:12px;display: block;padding-left: 30px;height: 28px;line-height: 28px;background: url(http://js.97ui.com/image/sucai/sucai-down-icon.png) no-repeat 0 center;float: left;margin-left: 30px;}
+
+
+/**** 升级banner详情 2016-07-11 ****/
+.banner-details{ border:#e5e5e5 1px solid}
+.banner-details .banner-infor{ height:57px;padding:15px 20px 10px 20px; color:#676767; font-size:20px;}
+.banner-details .banner-infor .banner-name span{ line-height:57px;}
+.banner-details .downBtnBox a.downLink {display:inline-block;width:195px;height:53px;overflow: hidden;background-color: #499df2;color: #fff;border: #0b7cd2 1px solid;border-radius: 3px;font-size:20px;line-height:53px}
+.banner-details .downBtnBox .down-icon{display:inline-block;width: 24px;height: 24px;background:url(http://js.97uimg.com/image/icon-download.png) 0 0 no-repeat;margin-left: 34px; margin-top:14px; margin-right:10px}
+.banner-details .downBtnBox a.collectLink {display:inline-block;border: 1px solid #E5E5E5;width:195px;height:53px;overflow: hidden ;background-color: #fff;color: #6a6a6a;border-radius: 3px; font-size:20px; line-height:53px;}
+.banner-details .downBtnBox .collect-icon{display:inline-block; background:url(http://js.97ui.com/image/icon-download.png)0 -27px no-repeat;width: 20px;height:20px;margin-left: 36px;margin-top:15px; margin-right:10px;}
+
+.banner-details .downBtnBox a.down-original{display:inline-block;border: 1px solid #32991A;;width:195px;height:53px;overflow: hidden ;background-color: #4CAF50;color: #fff;border-radius: 3px; font-size:20px; line-height:53px;}
+.banner-details .downBtnBox a{ margin-left:10px;}
+.banner-details  .bannerPic{background: url("http://js.97ui.com/image/sucai/showBg.jpg"); width:1198px; text-align:center; position:relative}
+.banner-details  .bannerPic img{ border:0; display:block; margin:0 auto}
+.banner-details .title-down{ height:50px; padding:0 20px}
+.banner-details .title-down span{font-size:18px;display: block; line-height:50px;}
+.banner-details .title-down .sucai-down-icon{font-size:12px;display: block;padding-left: 30px;height: 50px;line-height:50px;background: url(http://js.97ui.com/image/sucai/sucai-down-icon.png) no-repeat 0 center;margin-left: 30px; float:right !important}
+.banner-details .yangjiTagIcon{    width: 112px; height: 119px;background: url(http://js.97uimg.com/image/yangji-tag.png) no-repeat;position: absolute;top: -9px;right: -9px;}
+.label-banner p{ margin-right:20px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

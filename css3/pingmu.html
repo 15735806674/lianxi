@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .box{
+        width:500px;
+        border:1px solid red;
+        margin: 0 auto;
+    }
+    .box:before,.box:after{
+        content:"";
+        display: block;
+    }
+    .box:after{
+        clear:both;
+    }
+    .left{
+        width:100%;
+        float: left;
+    }
+    .right{
+        display: none;
+    }
+
+    .left div:nth-child(1){
+        float:left;
+        width:100%;
+        height:100px;
+        border-bottom: 1px solid red;
+    }
+    .left div:nth-child(2){
+        float: left;
+        width: 50%;
+        height:100px;
+        border-right:1px solid red;
+    }
+    .left div:nth-child(3){
+        width:50%;
+        height:100px;
+        float: left;
+    }
+    .left div:nth-child(4){
+       display: none;
+    }
+    @media screen and (min-width:1000px){
+        .box{
+            width:1000px;
+        }
+        .left{
+            width:75%;
+            float: left;
+            border-right: 1px solid red;
+        }
+        .left:before,.left:after{
+            content:"";
+            display: block;
+        }
+        .left:after{
+            clear:both;
+        }
+
+        .left div:nth-child(1){
+            width:66.666%;
+            border-bottom: 1px solid red;
+        }
+        .left div:nth-child(2){
+            width:33.333%;
+            border-left: 1px solid red;
+            border-bottom: 1px solid red;
+        }
+        .left div:nth-child(3){
+            width:33.333%;
+            border-right: 1px solid red;
+        }
+        .left div:nth-child(4){
+            display:block;
+            width:66.666%;
+            float: left;
+            height: 100px;
+
+        }
+        .right{
+            width:25%;
+            display:block;
+            float: left;
+        }
+        .right div{
+            float: right;
+            width:100%;
+            height:50px;
+            border-bottom:1px solid red;
+        }
+
+    }
+
+
+
+</style>
+<body>
+<div class="box">
+    <div class="left">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+    <div class="right">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</div>
+</body>
+</html>

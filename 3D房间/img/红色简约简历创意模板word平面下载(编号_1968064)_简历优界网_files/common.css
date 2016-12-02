@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* 下载页面 */
+.container-down {
+    width: 762px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.content-down {
+    background-color: #F8F8F8;
+}
+.down-info {
+    padding-top: 76px;
+    text-align: center;
+    font-size: 24px;
+}
+.down-info a {
+    color: #499DF2;
+}
+.down-btn-content {
+    padding-top: 46px;
+    padding-bottom: 120px;
+    text-align: center;
+}
+.down-btn-content a {
+    display: inline-block;
+    width: 236px;
+    height: 46px;
+    color: #FFFFFF;
+    font-size: 22px;
+    line-height: 46px;
+    border-radius: 2px;
+}
+.down-btn-vip {
+    background-color: #499DF2;
+    border: 1px solid #0B7CD2;
+    margin-right: 20px;
+}
+.down-btn-general {
+    background-color: #6AC156;
+    border: 1px solid #32991A;
+}
+.expand-vip {
+    margin-top: 20px;
+    height: 88px;
+    background-color: #F8F8F8;
+}
+.expand-vip-a {
+    width: 762px;
+    height: 88px;
+    display: inline-block;
+    background: url(http://js.97uimg.com/image/expand-vip.png) no-repeat center top;
+    text-indent: -999em;
+}
+
+/* 用户信息相关 */
+#user_id{height:20px;line-height:20px;}
+
+.new-user .sign { background:url(http://js.97uimg.com/image/icon-sign.png) no-repeat center;width:22px;height:23px; margin:25px 11px 0 20px;position: relative;}
+.new-user .sign a{ display:inline-block; height:23px; width:22px;cursor:default;}
+.new-user .sign:hover{background:url(http://js.97uimg.com/image/icon-sign-hover.png) no-repeat center;}
+
+#user-sign{ display:none;position:absolute;background:#fff;width:497px;background:url(http://js.97uimg.com/image/sign-bg.png) no-repeat top left ;top:65px;left:-380px;z-index:2;padding-bottom:20px;border-bottom:1px solid #A6A6A6; }
+#user-sign .sign-current{ margin-top:25px; overflow:hidden}
+#user-sign .sign-current .title{ font-size:20px; color:#333; text-align:center; line-height:40px; margin-top:10px;}
+#user-sign .sign-current ul{margin:20px auto 0px; padding:0 36px; height:90px}
+#user-sign .sign-current ul li{ float: left; height:72px; width:72px; background-color:#c1c1c1; border-radius:50%; margin-right:15px; line-height:72px; text-align:center; font-size:14px; color:#fff; }
+#user-sign .sign-current ul .current{ background-color:#499df2}
+#user-sign .sign-current ul .threedays{ position:relative}
+#user-sign .sign-current ul .threedays i{ background:url(http://js.97uimg.com/image/icon-30days.png); display:inline-block; width:58px; height:35px; position:absolute; top:50px; left:7px}
+#user-sign .sign-current ul .lastday{ margin-right:0px; position:relative}
+#user-sign .sign-current ul .lastday i{ background:url(http://js.97uimg.com/image/icon-90days.png); display:inline-block; width:58px; height:35px; position:absolute; top:50px; left:7px}
+#user-sign .today-sign{ clear:both; width:285px; height:60px; margin:25px auto 20px;}
+#user-sign .today-sign_old{ clear:both; width:285px; height:60px; margin:25px auto 20px;}
+#user-sign .today-sign span{ display:inline-block; width:285px; height:60px; background-color:#499df2; line-height:60px; text-align:center; font-size:18px; color:#fff; border-radius:5px; cursor:pointer}
+#user-sign .today-sign_old span{ display:inline-block; width:285px; height:60px; background-color:#499df2; line-height:60px; text-align:center; font-size:18px; color:#fff; border-radius:5px; cursor:pointer}
+#user-sign .add-sign { width:270px; margin:0 auto}
+#user-sign .add-sign div{ width:125px;}
+#user-sign .sign-current .add-sign .top{ color:#f96767; font-size:22px;text-align:center;}
+#user-sign .sign-current .add-sign .lei{ font-size:16px; color:#333;text-align:center; margin-top:5px;}

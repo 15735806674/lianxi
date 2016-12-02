@@ -1,0 +1,255 @@
+/**
+ * 我知道了提示组件
+ */
+var PointKnow = {};
+PointKnow.tpl = '\
+    <div class="point-know-shade"></div>\
+    <div class="point-know-point"><a class="point-know-know" href="javascript:void(0);"></a></div>\
+';
+PointKnow.isPontKnow = function () {
+  return $.cookie('is_point_know') ? true : false;
+};
+PointKnow.View = Backbone.View.extend({
+    className: 'point-know-box',
+    template: _.template(PointKnow.tpl),
+    events: {
+        'click .point-know-know': 'iKnow'
+    },
+    render: function () {
+        this.$el.html(this.template());
+        return this;
+    },
+    iKnow: function () {
+        $.cookie('is_point_know', 1, { expires: 365, path: '/' });
+        this.$el.remove();
+    }
+});
+
+/**
+ * 提示在这里组件
+ */
+var PointHere = {};
+PointHere.View = Backbone.View.extend({
+    className: 'point-here',
+    events: {
+        'click': 'doClick'
+    },
+    doClick: function () {
+        $.cookie('is_point_here', 4, { expires: 365, path: '/' });
+        this.$el.remove();
+    },
+    render: function () {
+
+        return this;
+    },
+    position: function (object) {
+        var num = $.cookie('is_point_here');
+        num = num ? parseInt(num) : 0;
+        num += 1;
+        if ( num > 3)
+            return false;
+        $.cookie('is_point_here', num, { expires: 365, path: '/' });
+
+        $("body").append(this.render().$el);
+        p();
+        $(window).resize(function(){ p(); });
+        $(window).scroll(function() { p();});
+        function p() {
+            $(".point-here").position({
+                of: $( object ),
+                my: "left-50px bottom+16px",
+                at: "right top",
+                collision: "none none"
+            });
+        }
+    }
+});
+
+/**
+ * 素材根据角色提供删除功能组件
+ */
+var MaterialRmImg = {};
+MaterialRmImg.tpl = '<div class="remove-img" data-id="<%= id %>">删除</div>';
+MaterialRmImg.View = Backbone.View.extend({
+    template: _.template(MaterialRmImg.tpl),
+    events: {
+        'click .remove-img': 'removeImg'
+    },
+    render: function () {
+        var _this = this;
+        _this.$el.find('.list').each(function () {
+            var id = $(this).data('id');
+            $(this).find(".img-info").append(_this.template({id: id}));
+        });
+    },
+    removeImg: function (e) {
+        var $this = $(e.currentTarget), _this = this;
+
+        var url = 'http://97ui.com/?m=Material&a=removeImg';
+
+        var id = $this.data('id');
+        var data = {id: id};
+
+        $.post(url, data, function (resp) {
+            if (resp.status > 0)
+                window.location.reload();
+            else
+                alert(resp.info);
+        }, 'JSON')
+    }
+});
+
+/**
+ * 图片贴标签组件
+ */
+var AddTagIcon = {};
+AddTagIcon.View = Backbone.View.extend({
+    render: function () {
+        // 贴标签
+        this.$el.each(function () {
+            var plateType = $(this).data('plate-type');
+            if (plateType == 6)
+                $(this).append('<div class="yangjiTagIcon"></div>');
+        });
+    }
+});
+
+/**
+ * 登录模态框组件
+ */
+var LoginModalComponent =  Backbone.View.extend({
+    el: 'body',
+
+    model: {
+        rendered : false
+    },
+
+    template: function () {
+        return _.template('\
+            <div id="qq-login-window-content">\
+                <div class="for_login"></div>\
+                <div id="qq-login-window" >\
+                    <div class="title-bar"><span class="title">登录优界网</span><a class="button-close-window" href="javascript:void(0);">×</a></div>\
+                    <div class="window-body"></div>\
+                </div>\
+                <div id="global-mask"></div>\
+                <div id="default-login-info" style="display:none" >\
+                    <div class="login-icon-wrapper">\
+                    <div class="big-qq-login"></div>\
+                </div>\
+                <div class="login-tip"></div>\
+                </div>\
+            </div>\
+        ');
+    },
+
+    events: {
+        'click .big-qq-login' : 'doLogin',
+        'click .button-close-window' : 'doCloseLogin'
+    },
+
+    render: function () {
+        if (this.model.rendered)
+            return true;
+        this.model.rendered = true;
+        $("body").append(this.template());
+        return this;
+    },
+
+    closeLoginWindow: function () {
+        $("#qq-login-window").fadeOut("fast");
+        $("#global-mask").fadeOut("fast");
+    },
+
+    openLoginWindow : function (type, referrer, cause) {	//cause表示用户被强制的登录的原因
+        if(!referrer) {
+            referrer = window.location.href;
+        }
+        if(!cause) {
+            cause = 0;
+        }
+        $.get("http://97ui.com/?m=login&a=setRefferer&url="+encodeURIComponent(referrer)+"&cause="+cause);
+
+        if(type=="signup") {
+            $("#default-login-info").find(".login-tip").text("可以使用QQ登录，1秒完成注册");
+            $(".window-body").html($("#default-login-info").html());
+            $("#default-login-info").hide();
+        }
+        else if(type=="signin") {
+            window.open("http://97ui.com/?m=login&a=snsLogin&type=qq","","width=750, height=500, top=50, left=50");
+            this.closeLoginWindow();
+        }
+
+        $("#global-mask").fadeIn('fast');
+        $("#qq-login-window").fadeIn('fast');
+    },
+
+    doLogin : function () {
+        console.log('doLogin');
+        window.open("http://97ui.com/?m=login&a=snsLogin&type=qq","","width=750, height=500, top=50, left=50");
+        this.closeLoginWindow();
+    },
+
+    doCloseLogin: function () {
+        this.closeLoginWindow();
+    }
+});
+
+/**
+ * 下载限制提示
+ */
+var DownLimitComponent = Backbone.View.extend({
+    el: 'body',
+
+    model: {
+        isVip : 0,
+        info: '',
+        page_type:2
+    },
+
+    template: function () {
+        var html = '\
+        <div id="limit">\
+            <div class="limit-bg"></div>\
+            <div class="limit-m">\
+                <a href="javascript:void(0)" class="colse_href" ><div class="close-limit"></div></a>\
+                <p><%= data.info %></p>\
+                <% if(data.isVip > 0) { %>\
+                <a href="javascript:void(0)" class="blank_href" >去收藏</a>\
+                <% } else { %>\
+                <a href="http://97ui.com/index.php?m=VipMembers&a=sponsor&type=2&page_type=<%= data.page_type %>" class="blank_href" target="_blank">立即获取VIP</a>\
+                <% } %>\
+            </div>\
+        </div>\
+        ';
+
+        var guestHtml = '\
+        <div id="limit">\
+            <div class="limit-bg"></div>\
+            <div class="limit-m">\
+                <a href="javascript:void(0)" class="colse_href" ><div class="close-limit"></div></a>\
+                <p>很抱歉，VIP用户才能下载哦!</p>\
+            </div>\
+        </div>\
+        ';
+
+        return _.template(html);
+    },
+
+    events: {
+        'click .close-limit': 'doClose',
+        'click .blank_href': 'doClose'
+    },
+
+    render: function () {
+        $("body").append(this.template()({data: this.model}));
+        return this;
+    },
+
+    doClose: function () {
+        $('#limit .limit-m').removeClass("show").addClass("close");
+        setTimeout(function () {
+            $("#limit").remove();
+        },300);
+    }
+});

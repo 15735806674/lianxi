@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多啦A梦</title>
+</head>
+<style>
+    .cat{
+        width: 390px;
+        height:480px;
+        position: fixed;
+        left:0;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+    }
+    .head{
+        width:314px;
+        height:304px;
+        border-radius: 146px;
+        border:2px solid #4c4c4c;
+        margin-left:38px;
+        background: #0AB6E1;
+    }
+    .heads{
+        width:268px;
+        height:200px;
+        border-radius: 150px 150px;
+        border:2px solid #4c4c4c;
+        margin-left:23px;
+        margin-top:80px;
+        position: relative;
+        background: #fff;
+        z-index:999;
+    }
+    .yan1{
+        position: absolute;
+        width: 72px;
+        height:83px;
+        border-radius: 35px 35px;
+        border:2px solid #4c4c4c;
+        left:62px;
+        top:-41.5px;
+        background: #fff;
+        z-index: 3;
+    }
+    .yan2{
+        position: absolute;
+        width: 72px;
+        height:83px;
+        border-radius: 35px 35px;
+        border:2px solid #4c4c4c;
+        left:136px;
+        top:-41.5px;
+        background: #fff;
+    }
+    .yan1 .yanzhu{
+        width: 15px;
+        height:15px;
+        background: #000;
+        border-radius: 50%;
+        position: absolute;
+        left:40px;
+        top:55px;
+        z-index: 1;
+
+    }
+    .yan2 .yanzhu{
+        width: 15px;
+        height:15px;
+        border-radius: 50%;
+        background: #000;
+        position: absolute;
+        left:15px;
+        top:55px;
+        z-index: 2;
+
+    }
+    @keyframes move {
+       0%{
+           transform: translate(0,0);
+       }
+        50%{
+            transform: translateY(-20px);
+        }
+        75%{
+            transform: translateX(3px);
+        }
+        100%{
+            transform: translateX(-10px);
+        }
+
+    }
+    .bi{
+       width:35px;
+        height:35px;
+        border-radius:50%;
+        border:2px solid #4c4c4c;
+        position: absolute;
+        left:116px;
+        top:32px;
+        background: #C93E00;
+        z-index:4;
+    }
+    .dian{
+        position: absolute;
+        width:10px;
+        height:10px;
+        border-radius: 50%;
+        background:#fff;
+        filter: blur(2px);
+        left:20px;
+        top:5px;
+        z-index: 5;
+    }
+    .biliang{
+        width:3px;
+        height:85px;
+        background: #333333;
+        position: absolute;
+        left:134px;
+        top:70px;
+        z-index: 6;
+    }
+
+   .huxu1{
+       width: 60px;
+       height:2px;
+       position: absolute;
+       left:30px;
+       top:85px;
+       background: #000;
+       z-index:7;
+   }
+    .huxu2{
+        width: 60px;
+        height:2px;
+        position: absolute;
+        left:30px;
+        top:65px;
+        background: #000;
+        transform-style: preserve-3d;
+        transform: rotateZ(15deg);
+        z-index: 8;
+    }
+    .huxu3{
+        width: 60px;
+        height:2px;
+        position: absolute;
+        left:30px;
+        top:105px;
+        background: #000;
+        transform-style: preserve-3d;
+        transform: rotateZ(-15deg);
+        z-index: 9;
+    }
+    .huxu4{
+          width: 60px;
+          height:2px;
+          position: absolute;
+          right:30px;
+          top:65px;
+          background: #000;
+          transform-style: preserve-3d;
+          transform: rotateZ(-15deg);
+        z-index: 10;
+      }
+    .huxu5{
+        width: 60px;
+        height:2px;
+        position: absolute;
+        right:30px;
+        top:85px;
+        background: #000;
+        z-index: 11;
+    }
+    .huxu6{
+        width: 60px;
+        height:2px;
+        position: absolute;
+        right:30px;
+        top:105px;
+        background: #000;
+        transform-style: preserve-3d;
+        transform: rotateZ(15deg);
+        z-index:999;
+    }
+    .zui{
+        position: absolute;
+        width: 230px;
+        height:400px;
+        border-bottom: 3px solid #000;
+        border-radius:130px;
+        top:-245px;
+        left:20px;
+    }
+    .zhezhao{
+        width: 240px;
+        height: 70px;
+        background: #fff;
+        position: absolute;
+        left: 14px;
+        top: 50px;
+    }
+    .bo{
+        position: absolute;
+        width: 234px;
+        height: 24px;
+        background: #AF2B00;
+        border: 2px solid #000;
+        border-radius: 30px;
+        top: 271px;
+        left: 73px;
+        z-index: 999;
+
+    }
+    .shen{
+        width: 224px;
+        height: 58px;
+        margin-left: 76px;
+        margin-top:-15px;
+        background: #049FD3;
+        position: relative;
+        overflow: hidden;
+    }
+    .shen1{
+        width: 224px;
+        height: 111px;
+        border:2px solid #000;
+        border-top: none;
+        border-bottom: none;
+        margin-left: 75px;
+        background: #049FD3;
+        overflow: hidden;
+    }
+    .bi1{
+        position: absolute;
+        width: 103px;
+        height: 51px;
+        left: -2px;
+        top: 319px;
+        border: 2px solid #000;
+        background: #049FD3;
+        transform-style: preserve-3d;
+        transform: rotateZ(-38deg);
+        z-index: -1;
+    }
+    .bi2{
+        position: absolute;
+        width: 103px;
+        height: 51px;
+        right: 10px;
+        top: 319px;
+        border: 2px solid #000;
+        background: #049FD3;
+        transform-style: preserve-3d;
+        transform: rotateZ(38deg);
+        z-index: -1;
+    }
+    .shou1{
+        width: 65px;
+        height:65px;
+        background: #fff;
+        border:2px solid #000;
+        border-radius: 32px;
+        position: absolute;
+        left:-20px;
+        top:-8px;
+    }
+    .shou2{
+        width: 65px;
+        height:65px;
+        background: #fff;
+        border:2px solid #000;
+        border-radius: 32px;
+        position: absolute;
+        right:-20px;
+        top:-8px;
+    }
+    .du{
+        width: 170px;
+        height: 170px;
+        background: #fff;
+        border-radius: 50%;
+        border: 2px solid #000;
+        position: absolute;
+        left: 103px;
+        top: 256px;
+    }
+    .foot1{
+        position: absolute;
+        left:55px;
+        top:460px;
+        width: 133px;
+        height:30px;
+        background: #fff;
+        border:2px solid #000;
+        border-radius:65px 40px;
+        box-shadow:2px 0 10px #656565;
+        box-shadow:-1px 0 9px #000 inset;
+    }
+    .foot2{
+        position: absolute;
+        right: 55px;
+        top: 460px;
+        width: 133px;
+        height: 30px;
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 65px 40px;
+        box-shadow: 2px 1px 10px #000;
+        box-shadow: -1px 0px 9px #000 inset;
+    }
+    .que{
+        width:24px;
+        height:12px;
+        border: 2px solid #000;
+        border-bottom:none;
+        border-radius: 60px 60px 0 0 ;
+        background: #fff;
+        position: absolute;
+        left: 183px;
+        top: 449px;
+    }
+    .dudou{
+        width:134px;
+        height:67px;
+        border:2px solid #000;
+        position: absolute;
+        left:121px;
+        top:340px;
+        border-radius: 0 0 70px 70px;
+    }
+    .lingdang{
+        width:40px;
+        height:40px;
+        border:2px solid #000;
+        position: absolute;
+        left:172px;
+        top:280px;
+        border-radius: 50%;
+        background: #F3EB24;
+        z-index: 999;
+        box-shadow: 0 3px 0 #C1C1C1;
+    }
+    .gang{
+        width:36px;
+        height:2px;
+        border: 2px solid #333333;
+        margin-top:10px;
+    }
+    .diandian{
+        width: 14px;
+        height: 10px;
+        background: #000;
+        border-radius: 50%;
+        margin-top: 4px;
+        margin-left: 14px;
+    }
+    .ti{
+        width:3px;
+        height:10px;
+        background: #000;
+        margin-left: 20px;
+    }
+    .hua{
+        width:7px;
+        height:7px;
+        background:#fff;
+        border-radius: 50%;
+        filter: blur(1px);
+        margin-left: 27px;
+        margin-top: -35px;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var yanzhu=document.getElementsByClassName("yanzhu");
+        var cat=document.getElementsByClassName("cat")[0];
+
+       var flag=true;
+        var flag1=true;
+        cat.onclick=function(){
+            if(flag){
+                var t=setInterval(move,3000)
+                function move(){
+                    if(flag1){
+                        yanzhu[0].style.cssText="animation:move 3s linear infinite";
+                        yanzhu[1].style.cssText="animation:move 3s linear infinite";
+                        flag1=false;
+                    }else{
+                        yanzhu[0].style.animation="none";
+                        yanzhu[1].style.animation="none";
+                      flag1=true;
+                    }
+                  flag=false;
+                }
+            }else{
+                clearInterval(move,3000);
+                yanzhu[0].style.animation="none";
+                yanzhu[1].style.animation="none";
+                flag=true;
+            }
+        }
+    }
+</script>
+<body>
+<div class="cat">
+    <div class="head">
+        <div class="heads">
+            <div class="yan1">
+                <div class="yanzhu"></div>
+            </div>
+            <div class="yan2">
+                <div class="yanzhu"></div>
+            </div>
+            <div class="bi">
+                <div class="dian"></div>
+            </div>
+            <div class="biliang"></div>
+            <div class="huxu1"></div>
+            <div class="huxu2"></div>
+            <div class="huxu3"></div>
+            <div class="huxu4"></div>
+            <div class="huxu5"></div>
+            <div class="huxu6"></div>
+            <div class="zui">
+
+            </div>
+            <div class="zhezhao"></div>
+        </div>
+    </div>
+    <div class="bo"></div>
+    <div class="shen"></div>
+    <div class="shen1">
+        <div class="bi1">
+            <div class="shou1"></div>
+        </div>
+        <div class="bi2">
+            <div class="shou2"></div>
+        </div>
+        <div class="du"></div>
+        <div class="foot1"></div>
+        <div class="foot2"></div>
+        <div class="que"></div>
+        <div class="dudou"></div>
+        <div class="lingdang">
+            <div class="gang"></div>
+            <div class="diandian"></div>
+            <div class="ti"></div>
+            <div class="hua"></div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

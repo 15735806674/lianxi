@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    canvas{
+        background: #ccc;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var canvas=document.getElementsByTagName("canvas")[0];
+        var cobj=canvas.getContext("2d");
+        var color=cobj.createLinearGradient(0,0,100,0);
+        color.addColorStop(0,"red");
+        color.addColorStop(0.5,"pink");
+        color.addColorStop(1,"blue");
+        cobj.fillStyle=color;
+        cobj.fillRect(20,20,150,150);
+        cobj.strokeRect(150,150,150,150);
+    }
+</script>
+<body>
+<canvas width="500" height="500"></canvas>
+</body>
+</html>

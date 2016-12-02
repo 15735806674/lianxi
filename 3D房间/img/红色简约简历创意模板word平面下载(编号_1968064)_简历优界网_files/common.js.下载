@@ -1,0 +1,4 @@
+// 登录
+function login(){
+    window.open("http://97ui.com/?m=login&a=snsLogin&type=qq","","width=750, height=500, top=50, left=50");
+}

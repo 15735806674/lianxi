@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding:0;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    .box{
+        width:500px;
+        height:400px;
+        overflow: hidden;
+        border:1px solid red;
+        margin:0 auto;
+
+    }
+
+    .col-s-1{
+        width:8.33333%;
+    }
+    .col-s-2{
+        width:16.6666%;
+    }
+    .col-s-3{
+        width:25%;
+    }
+    .col-s-4{
+        width:33.3333%;
+    }
+    .col-s-5{
+        width:41.6666%;
+    }
+    .col-s-6{
+        width:50%;
+    }
+    .col-s-7{
+        width:58.3333%;
+    }
+    .col-s-8{
+        width:66.6666%;
+    }
+    .col-s-9{
+        width:75%;
+    }
+    .col-s-10{
+        width:83.3333%;
+    }
+    .col-s-11{
+        width:91.6666%;
+    }
+    .col-s-12{
+        width:100%;
+    }
+    @media screen and (min-width:1000px){
+        .box{
+            width:1000px;
+        }
+        .col-l-1{
+            width:8.33333%;
+        }
+        .col-l-2{
+            width:16.6666%;
+        }
+        .col-l-3{
+            width:25%;
+        }
+        .col-l-4{
+            width:33.3333%;
+        }
+        .col-l-5{
+            width:41.6666%;
+        }
+        .col-l-6{
+            width:50%;
+        }
+        .col-l-7{
+            width:58.3333%;
+        }
+        .col-l-8{
+            width:66.6666%;
+        }
+        .col-l-9{
+            width:75%;
+        }
+        .col-l-10{
+            width:83.3333%;
+        }
+        .col-l-11{
+            width:91.6666%;
+        }
+        .col-l-12{
+            width:100%;
+        }
+    }
+div[class*=col]{
+    float: left;
+    height:200px;
+    border:1px solid red;
+}
+    div[class=col-l-12]{
+        height:100px;
+    }
+
+</style>
+<body>
+<div class="box">
+    <div class="left col-s-12 col-l-9">
+        <div class="col-s-12 col-l-8"></div>
+         <div class="col-s-6 col-l-4"></div>
+         <div class="col-s-6 col-l-4" ></div>
+        <div class="col-l-8"></div>
+    </div>
+    <div class="right col-l-3">
+        <div class="col-l-12"></div>
+        <div class="col-l-12"></div>
+        <div class="col-l-12"></div>
+        <div class="col-l-12"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+/* 灵感查看原图 start */
+.top-bar .show-big-img {
+    color: #666;
+    padding: 0;
+    background: #fff;
+    border: 1px #d2d2d2 solid;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    border-radius: 2px;
+    display: block;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.top-bar .show-big-img i {
+    width: 15px;
+    height: 15px;
+    background: url(http://js.97uimg.com/image/gallery/show-icon.png);
+    vertical-align: -1px;
+    display: inline-block;
+}
+
+.imgshow .tog .show {
+    padding: 0 14px;
+    background: #fff;
+    border: 1px #d2d2d2 solid;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 2px;
+    margin-left: 9px;
+}
+
+.imgshow .tog .show i {
+    width: 15px;
+    height: 15px;
+    background: url(http://js.97uimg.com/image/gallery/show-icon.png);
+    margin-left: 6px;
+    vertical-align: -2px;
+    display: inline-block;
+}
+
+.imgshow .tog .showImg {
+    padding: 0 14px;
+    background: #fff;
+    border: 1px #d2d2d2 solid;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 2px;
+    margin-left: 9px;
+}
+
+.imgshow .tog .showImg i {
+    width: 15px;
+    height: 15px;
+    background: url(http://js.97uimg.com/image/gallery/show-icon.png);
+    margin-left: 6px;
+    vertical-align: -2px;
+    display: inline-block;
+}
+
+#pin_view_layer {
+    display: none;
+}
+
+#pin_view_layer .zoom-layer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.8);
+    z-index: 100;
+    text-align: center;
+}
+
+#pin_view_layer .zoom-layer .holder {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    font-size: 0;
+}
+
+#pin_view_layer .zoom-layer .close-zoom {
+    width: 40px;
+    height: 40px;
+    background: url(http://js.97uimg.com/image/btn_zoom_close.png) 0 0 no-repeat;
+    position: absolute;
+    right: 22px;
+    top: 8px;
+    cursor: pointer;
+}
+
+/* 灵感查看原图 end */
+
+/* 我知道了提示 start */
+.point-know-box {
+}
+
+.point-know-shade {
+    background-color: black;
+    opacity: 0.8;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 98;
+}
+
+.point-know-point {
+    width: 667px;
+    height: 473px;
+    position: absolute;
+    top: 100px;
+    left: 30%;
+    z-index: 100;
+    background: url("http://js.97uimg.com/image/point-know.png") no-repeat;
+}
+
+.point-know-know {
+    width: 190px;
+    height: 80px;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+/* 我知道了提示 end */
+
+/* 提示搬到这里 start */
+.point-here {
+    width: 150px;
+    height: 112px;
+    background: url("http://js.97uimg.com/image/point-here.gif") no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 110;
+    cursor: pointer;
+}
+
+/* 提示搬到这里 end */
+
+/* 下载限制提示 start */
+#limit{ position:fixed;z-index: 99999999999999999; width: 100%;height:100%;left:0;top:0; }
+#limit .limit-bg{ background: #000;filter:alpha(opacity=30);-moz-opacity:0.3;opacity:0.3;height:100%;}
+#limit .limit-m{ position: absolute;top:50%;left:50%;margin:-120px 0 0 -221px; width: 442px;height:240px;text-align: center; background: #ffffff;border-radius:8px;box-shadow: 0 0 3px rgba(0,0,0,.3);}
+#limit .limit-m .close-limit{width:12px;height:12px; background: url(http://js.97uimg.com/image/close2.png?v=2);float:right;margin:18px 18px 0 0; transition:all .2s;cursor: pointer;}
+#limit .limit-m .close-limit:hover{transform:rotate(90deg);}
+#limit .limit-m p{color:#676767;font-size: 19px; line-height: 38px;padding-top:27px; clear: both;}
+#limit .limit-m .blank_href{ display: inline-block;width:206px;height:50px; text-align:center; line-height: 50px;margin:25px auto 0;  font-size: 19px;color:#fff; background: #69b0f5;border-radius:4px; transition:all .2s;}
+#limit .limit-m .blank_href:hover{ background: #3c9bf7;}
+#limit .close{ animation: limit .3s ease-in-out;}
+#limit .show{ animation: limit2 .3s ease-in-out forwards;}
+@keyframes limit{
+    0%{top:50%;}
+    80%{top:49%;}
+    90%{top:52%;}
+    100%{top:120%;}
+}
+@keyframes limit2{
+    0%{top:-20%;}
+    80%{top:52%;}
+    90%{top:49%;}
+    100%{top:50%;}
+}
+
+/* 下载限制提示 end */

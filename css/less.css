@@ -1,0 +1,42 @@
+span {
+  background: red;
+  font-size: 20px;
+  color: pink;
+}
+div {
+  border: 1px solid red;
+  width: 300px;
+  height: 300px;
+  border-image-source: url("../timg.jpg");
+  border-image-width: 50px;
+  border-image-slice: 33.3333%;
+  border-image-repeat: round;
+  border-image-outset: 10px;
+}
+col-l-1 {
+  width: 200px;
+}
+col-l-2 {
+  width: 200px;
+}
+col-l-3 {
+  width: 200px;
+}
+col-l-4 {
+  width: 200px;
+}
+col-l-5 {
+  width: 200px;
+}
+col-l-6 {
+  width: 200px;
+}
+col-l-7 {
+  width: 200px;
+}
+col-l-8 {
+  width: 200px;
+}
+col-l-9 {
+  width: 200px;
+}

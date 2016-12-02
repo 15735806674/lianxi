@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta y="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    html,body{
+        background:#000;
+        padding:0;
+        margin:0;
+        overflow: hidden;
+        /*position: relative;*/
+    }
+</style>
+<script>
+    window.onload=function(){
+        var clientw=document.documentElement.clientWidth;
+        var clienth=document.documentElement.clientHeight;
+        var arr=[];
+        for(var i=0;i<100;i++){
+            var div=document.createElement("div");
+            div.style.cssText="width:2px;height:6px;position:absolute;left:"+(50+Math.random()*(clientw-100))+"px;top:20px;background:#fff;filter:blur(1px);transition:transform ease "+(2+4)*Math.random()+"s;";
+            document.body.appendChild(div);
+            arr.push(div);
+    }
+    setTimeout(function(){
+        for(var i=0;i<arr.length;i++){
+           arr[i].style.transform="translate(0,"+clienth+"px)";
+            arr[i].addEventListener("webkitTransitionEnd",function(){
+                this.style.transition="none";
+                this.style.transform="translate(0,0)";
+                var that=this;
+                setTimeout(function(){
+                    that.style.transition="transform ease "+(2+4)*Math.random()+"s";
+                    that.style.transform="translate(0,"+clienth+"px)";
+                },0)
+            })
+        }
+    },0)
+      }
+</script>
+<body>
+</body>
+</html>

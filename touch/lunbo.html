@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="touch.js"></script>
+    <script src="jquery.js"></script>
+    <style>
+        .box{
+            width: 400px;
+            height:300px;
+            position: fixed;
+            left:0;
+            top:0;
+            right:0;
+            bottom:0;
+            margin:auto;
+            color:#000;
+            font-size: 50px;
+            line-height:300px;
+            text-align: center;
+            border:1px solid orange;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box=document.querySelectorAll(".box");
+            $(".box").hide().eq(0).show();
+            setInterval(function(){
+              var index=$(".box").index(".box");
+                alert(index)
+                $(".box").fadeIn(200).eq(index).fadeOut(200);
+            },1000)
+
+        }
+    </script>
+</head>
+<body>
+<div class="box" style="background:red">1</div>
+<div class="box" style="background:yellow">2</div>
+<div class="box" style="background:blue">3</div>
+<div class="box" style="background:pink">4</div>
+</body>
+</html>

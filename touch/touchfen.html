@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    (function(){
+        window.$ = function(selector){
+            function $(selector){
+                if(typeof selector == "function"){
+                    this.ready(selector);
+                }else if(selector.nodeType == 1){
+                    this[0]=selector;
+                    this.length = 1;
+                }else if(selector[0].nodeType == 1){
+                    this.extend(this,selector);
+                    this.length = selector.length;
+                }else if(typeof selector == "string"&&/^<(\w{1,6})>$/.test(selector)){
+                    var result = /^<(\w{1,6})>$/.exec(selector);
+                    var ele = result[1];
+                    this[0] = document
+                    var objs = document.querySelectorAll(selector);
+                    this.extend(this.objs);
+                    this.length = objs.length;
+                }else if(typeof selector == "string"){
+
+                }
+
+            }
+            $.prototype = {
+                test:function(){
+
+                },
+                ready:function(selector){
+                    document.addEventListener("DOMContentLoad",function(){
+                        selector();
+                    })
+                },
+                extend:function(obj,obj1){
+                    //插件机制；
+                    for(var i in obj1){
+                        obj[i]= obj1][i]
+                    }
+                },
+                each:function(callback){
+                    for(var i = 0;i<this.length;i++){
+                        callback(i,this[i]);
+                    }
+                },
+                html:function(val){
+                    this.each(function(index,obj){
+
+                        obj.innerHTML = val;
+                    })
+                    return this;
+                },
+                css:function(cssParam){
+                    this.each(function(index,obj){
+                        for(var i in cssParam){
+                            if(i=="width"||i=="height"){
+                                var index = String(cssParam[i].indexOf("px"));
+                                if(index>-1){
+                                    var val = cassParam[i].slice(0,index);
+                                }else{
+                                    val = cassParam[i];
+                                }
+                                obj.style[i] = val+"px";
+                            }
+                            obj.style[i] = cssParam[i];
+                        }
+                    })
+                    return this;
+                },
+                click:function(callback){
+                    this.each(function(index,obj){
+                        obj.onclick = function(){
+                            callback().call(obj);
+                        }
+                    })
+                    return this;
+                },
+                tap:function(callback){
+                    var now,end;
+                    this.each(function(index,obj){
+
+                        obj.addEventListener("touchstart",function(){
+                            now = new Date().getTime();
+                        })
+                        obj.addEventListener("touchend",function(){
+                            end = new Date().getTime();
+                            if(end-now<200){
+                                callback.call(obj);
+                                clearTimeout(obj.t);
+                            }
+                        })
+                    })
+                    return this;
+                },
+                hold:function(callback){
+                    this.each(function(index,obj){
+                        obj.addEventListener("touchstart",function(){
+                            obj.t = setTimeout(function(){
+                                callback().call(obj);
+                            },700)
+
+                        })
+                    })
+                    return this;
+                },
+                tapEnd:function(callback){
+                    this.each(function(index,obj){
+                        obj.addEventListener("touchend",function(){
+                            callback().call(obj);
+                        })
+                    })
+                }
+
+            }
+            return  new $(selector);
+        }
+        window.jquery = window.$;
+    })();
+
+
+</script>
+<body>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+
+</body>
+</html>

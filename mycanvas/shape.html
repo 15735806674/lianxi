@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/shape.js"></script>
+</head>
+<style>
+    body{
+        padding:0;
+        margin:0;
+    }
+    canvas{
+       background:#eee;
+        border: 1px solid #000;
+        left:0;
+        right:0;
+        margin:auto;
+        bottom;
+        position: fixed;
+    }
+    .nav{
+        width:100%;
+        height:50px;
+        background: #969896;
+        float: left;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var canvas=document.querySelector("canvas");
+        var cobj=canvas.getContext("2d");
+        var obj= new shape(canvas,cobj);
+        obj.type="jiao";
+        obj.style="fill";
+        obj.fillStyle="orange";
+        obj.draw();
+    }
+</script>
+<body>
+<canvas width="1000" height="600">
+    <div class="nav"></div>
+</canvas>
+
+</body>
+</html>

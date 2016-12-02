@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="css/less.css">-->
+</head>
+<style>
+    /*.bian {*/
+        /*border: 1px solid red;*/
+        /*width: 300px;*/
+        /*height: 300px;*/
+        /*border-image-source: url("border.png");*/
+        /*border-image-width: 20px 20px;*/
+        /*border-image-slice: 33.3333%;*/
+        /*border-image-repeat: round;*/
+        /*border-image-outset: 15px;*/
+    /*}*/
+    .red{
+        width: 100px;
+        height:50px;
+        background: red;
+    }
+    .green{
+        width: 100px;
+        height:50px;
+        background: green;
+    }
+</style>
+<body>
+<!--<div></div>-->
+<!--<span>边框很大</span>-->
+<!--<div class="bian">womwndouhenhao</div>-->
+<div class="red">我是红色的</div>
+<div class="green">我是绿色的</div>
+</body>
+<script>
+    window.onload=function(){
+        var red=document.querySelector(".red");
+        var green=document.querySelector(".green");
+        var flag=true;
+        red.onclick=function(){
+            if(!flag){
+                red.style.background="pink";
+               return;
+            }if(flag){
+                red.style.background="blue";
+                flag=false;
+            }
+        }
+
+    }
+</script>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .scren{
+        width:200px;
+        height:200px;
+        padding:200px;
+        perspective:800px;
+        position: fixed;
+        left:0;
+        top:0;
+        bottom:0;
+        right:0;
+        margin:auto;
+    }
+    .box{
+        width: 100%;
+        height: 100%;
+        font-size: 30px;
+        line-height:200px;
+        color:#000;
+        position: relative;
+        transform-style: preserve-3d;
+        text-align: center;
+        /*transition: transform 1s ease;*/
+        transform-origin: center center 100px;
+    }
+    .box div{
+        width:100%;
+        height:100%;
+        position: absolute;
+        left:0;top:0;
+        line-height: 200px;
+
+    }
+    .box div:nth-child(1){
+        background: pink;
+       transform-origin: top;
+        transform:rotateX(90deg);
+    }
+    .box div:nth-child(2){
+        background: yellow;
+        transform-origin: left;
+        transform:rotateY(-90deg);
+    }
+    .box div:nth-child(3){
+        background:blue;
+    }
+    .box div:nth-child(4){
+        background: orange;
+        transform-origin:right;
+        transform:rotateY(90deg);
+    }
+    .box div:nth-child(5){
+        background: plum;
+        transform-origin:bottom;
+        transform:rotateX(-90deg);
+    }
+    .box div:nth-child(6){
+        background: red;
+        transform:translateZ(200px);
+    }
+    /*.box:hover{*/
+        /*transform: rotateX(360deg);*/
+    /*}*/
+
+</style>
+<body>
+<div class="scren">
+    <div class="box">
+        <div>01</div>
+        <div>02</div>
+        <div>03</div>
+        <div>04</div>
+        <div>05</div>
+        <div>06</div>
+
+    </div>
+</div>
+<script>
+ window.onload=function(){
+     var clientX=document.documentElement.clientWidth/2;
+     var clientY=document.documentElement.clientHeight/2;
+     var box=document.getElementsByClassName("box")[0];
+     window.onmousedown=function(e){
+         var cx=e.clientX;
+         var cy=e.clientY;
+         window.onmousemove=function(e){
+             var moveX=e.clientX;
+             var moveY=e.clientY;
+             var x=moveX-cx;
+             var y=moveY-cy;
+             var mo=Math.sqrt(x*x+y*y);
+             var mox=x/mo;
+             var moy=y/mo;
+             var angle=Math.sqrt((moveX-clientX)*(moveX-clientX)+(moveY-clientY)*(moveY-clientY))
+                 box.style.transform="rotate3d("+-moy+","+mox+",0,"+angle+"deg)";
+         }
+             window.onmouseup=function(){
+             window.onmousemove=null;
+             window.onmouseup=null;
+             }
+
+     }
+
+
+ }
+</script>
+</body>
+</html>

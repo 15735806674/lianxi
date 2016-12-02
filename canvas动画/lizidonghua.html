@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    canvas{
+        background:#000;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var canvas=document.querySelector("canvas");
+        var cobj=canvas.getContext("2d");
+        function lizi(){
+//            this.x=200;
+//            this.y=200;
+//            this.r=3+3*Math.random();
+//            this.color="rgb("+parseInt(255*Math.random())+","+parseInt(255*Math.random())+","+parseInt(255*Math.random())+")";
+//            this.speedy=-10;
+//            this.speedx=6*Math.random()-3;
+//            this.zhongli=0.3;
+//            this.speedr=0.03;
+            this.x=200;
+            this.y=200;
+            this.r=3+3*Math.random();
+            this.color="red";
+            this.speedy=6*Math.random()-3;
+            this.speedx=6*Math.random()-3;
+            this.zhongli=0.3;
+            this.speedr=0.1;
+        }
+        lizi.prototype={
+               draw:function(){
+               cobj.save();
+                   cobj.beginPath();
+                cobj.translate(this.x,this.y);
+                cobj.fillStyle=this.color;
+                cobj.arc(0,0,this.r,0,2*Math.PI);
+                cobj.fill();
+                cobj.restore();
+            },
+            update:function(){
+                this.x+=this.speedx;
+                this.y+=this.speedy;
+                this.speedy+=this.zhongli;
+                this.r-=this.speedr;
+            }
+        }
+        var arr=[];
+        setInterval(function(){
+            cobj.clearRect(0,0,800,600);
+            arr.push(new lizi());
+            for(var i=0;i<arr.length;i++){
+                arr[i].draw();
+                arr[i].update();
+                if(arr[i].speedr==0){
+                    arr[i]=new lizi();
+                }
+                if(arr.length>100){
+                    arr.shift();
+                }
+            }
+        },50)
+    }
+</script>
+<body>
+<canvas width="800" height="600"></canvas>
+</body>
+</html>

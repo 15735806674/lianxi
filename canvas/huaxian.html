@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body,html{
+        padding:0;
+        margin:0;
+        width: 100%;
+        height:100%;
+        cursor: pointer;
+    }
+    canvas{
+        background: #ccc;
+        position: fixed;
+        left:0;
+        top:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var canvas=document.querySelector("canvas");
+        var cobj=canvas.getContext("2d");
+        var input=document.querySelector("input");
+        var arr=[];
+        canvas.onmousedown=function(e){
+            var startx=e.offsetX;
+            var starty=e.offsetY;
+            canvas.onmousemove=function(e){
+                cobj.clearRect(0,0,canvas.width,canvas.height);
+                if(arr.length>0){
+                cobj.putImageData(arr[arr.length-1],0,0);
+                }
+                var movex=e.offsetX;
+                var movey=e.offsetY;
+                cobj.strokeStyle="orange";
+                cobj.lineWidth=3;
+                cobj.beginPath();
+              cobj.moveTo(startx,starty);
+                cobj.lineTo(movex,movey);
+                cobj.stroke();
+                e.preventDefault();
+            }
+            canvas.onmouseup=function(){
+                canvas.onmousemove=null;
+                canvas.onmouseup=null;
+                arr.push(cobj.getImageData(0,0,canvas.width,canvas.height));
+                e.preventDefault();
+            }
+        }
+        input.onclick=function(){
+           if(arr.length==0){
+               alert("不能撤回");
+               cobj.clearRect(0,0,canvas.width,canvas.height);
+           }else{
+               var data=arr.pop();
+               cobj.putImageData(data,0,0);
+           }
+        }
+    }
+</script>
+<body>
+<canvas width="800px" height="800px"></canvas>
+<input type="button" value="点击">
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width:300px;
+        height:300px;
+        background: pink;
+        /*border-radius: 50%;*/
+        animation:one 2s  linear infinite;
+    }
+    @keyframes one {
+        0%{
+            transform: translate(0,0);
+        }
+        50%{
+             transform: translate(200px,0) rotateZ(0deg);
+        }
+        /*100%{*/
+            /*transform: translate(500px,0) rotateZ(36000deg);*/
+        /*}*/
+    }
+</style>
+<body>
+<div></div>
+</body>
+</html>
+<script>
+    window.onload=function(){
+        var lingdang=document.querySelector(".lingdang");
+        var yanzhu1=document.querySelector(".yanzhu-left");
+        var yanzhu2=document.querySelector(".yanzhu-right");
+        var box=document.querySelector(".box");
+        var flag=true;
+        var flag1=true;
+        lingdang.onclick=function(){
+            var that=this;
+            if(flag){
+                t=setInterval(function(){
+                    if(flag1){
+                        that.style.opacity="0.7";
+                        that.style.animation="action3 1s infinite";
+                        yanzhu1.style.animation="action1 5s infinite";
+                        yanzhu2.style.animation="action2 5s infinite";
+                        flag1=false;
+                    }else{
+                        that.style.animation="none";
+                        yanzhu1.style.animation="none";
+                        yanzhu2.style.animation="none";
+                        flag1=true;
+                    }
+
+                },5000);
+                flag=false;
+            }else{
+                clearInterval(t);
+                that.style.animation="none";
+                yanzhu1.style.animation="none";
+                yanzhu2.style.animation="none";
+                flag=true;
+            }
+
+
+        }
+
+
+
+    }
+</script>

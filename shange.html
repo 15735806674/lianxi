@@ -1,0 +1,29 @@
+.loop (@i:0) when(@i<=100){
+@s:@i*1%;
+.one();
+.one() when (@i<50){
+@{s}{
+transform: rotateY(@i*0.9deg) scale(1-10/100/10*@i,1-10/100/10*@i);
+}
+}
+.one() when (@i>=50){
+@{s}{
+transform: rotateY(@i*0.9deg) scale(10/100/10*@i,10/100/10*@i);
+}
+}
+.loop(@i+1);
+}
+@keyframes one {
+.loop()
+}
+var init=0;
+setInterval(function () {
+init+=90;
+for(var i=0;i<arr.length;i++){
+if(i<5){
+arr[i].style.animation="one "+i*0.8+"s ease";
+}else{
+arr[i].style.animation="one "+(8-i*0.8)+"s ease";
+}
+}
+},5000)

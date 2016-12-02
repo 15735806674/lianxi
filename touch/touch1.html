@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="touch.js"></script>
+</head>
+<style>
+    .box{
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var box=document.querySelector(".box");
+         touch.on("body","drag",".box",function(e){
+   box.style.marginTop=e.y+"px";
+//             alert(1)
+})
+    }
+</script>
+<body>
+<div class="box"></div>
+</body>
+</html>
